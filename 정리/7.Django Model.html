@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>Django Model이란?</h2>
+    <ul>
+        <li>MVC 패턴의 모델에 대응되며 DB에 저장되는 데이터를 의미한다.</li>
+        <li>django는 모델(model)을 이용하여 데이터베이스를 처리한다.</li>
+    </ul>
+    <h2>Database</h2>
+    <ul>
+        <li>체계화된 데이터의 모임</li>
+        <li>검색 및 구조화 같은 작업을 보다 쉽게 하기 위해 조직화된 데이터를 수집하는 저장 시스템</li>
+        <li>기본 구조로 스미카(Schema)와 테이블(Table)이 있다.</li>
+        <li>스미카(Schema)란?
+            <ul>
+                <li>데이터베이스의 구조와 제약 조건에 관한 전반적인 명세를 기술한 메타데이터의 집합이다.</li>
+                <li>데이터베이스를 구성하는 데이터 개체(Entity), 속성(Attribute), 관계(Relationship) 및 데이터 조작 시 데이터 값들이 갖는 제약 조건 등에 관해 전반적으로 정의한다.</li>
+                <li>사용자의 관점에 따라 외부 스키마, 개념 스키마, 내부 스키마로 나눠진다.</li>
+                <li>참고 <a href="https://coding-factory.tistory.com/216">코딩팩토리</a> </li>
+            </ul>
+        </li>
+        <li>테이블(Tabel)이란?
+            <ul>
+                <li>필드와 레코드를 사용해 조직된 데이터 요소들의 집합.</li>
+                <li>관계(Relation)라고도 불린다.</li>
+                <li>필드(field) : 속성, 컬럼(column) / 레코드(recore) : 튜플, 행(Row)</li>
+                <li>쿼리(Query) : 데이터를 조회하기 위한 명령어로 조건에 맞는 데이터를 추출하거나 조작하는 명령어이다.</li>
+                <li>참고 <a href="https://hwan-shell.tistory.com/286">HwanShell</a></li> 
+            </ul>
+        </li>
+    </ul>
+    <h2>Model 작성하기</h2>
+    <ul>
+        <li>models.py 작성
+            <ul>
+                <li>모델 클래스 작성 = 데이터베이스 테이블 스키마 정의.</li>
+                <li>각 모델은 django.models.Model 클래스의 서브 클래스이다.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/225487792-69d59762-63e6-47b0-beca-7af5c310aaf6.png" alt="모델작성">
+                <li>models 모듈을 통해 어떠한 타입의 DB필드(컬럼)을 정의할 것인지를 정의.</li>
+                <li>Article에는 어떤 데이터 구조가 필요한지를 정의.</li>
+                <li>클래스 변수 title # DB필드의 이름 = models.CharField(max_length=10) # DB필드의 데이터 타입 </li>
+                <li>django의 모델 필드 참고 <a href="https://velog.io/@bungouk6829/Django-%EB%AA%A8%EB%8D%B8%EC%9D%98-%ED%95%84%EB%93%9C-%EA%B4%80%EA%B3%84%ED%98%95-%ED%95%84%EB%93%9C">bungouk6829</a> </li>
+            </ul>
+        </li>
+    </ul>
+    <h2>Migrations</h2>
+    <ul>
+        <li>Python 모델 클래스의 수정 (및 생성 )을 DB에 적용하는 과정을 Migrations이라 한다.</li>
+        <li>터미널에 python manage.py makemigrations 을 입력하여 설치.</li>
+        <li>vscode sqlite확장 설치</li>
+    </ul>
+    <h2>migrate</h2>
+    <ul>
+        <li>makemigrations로 만든 설계도를 실제 데이터베이스에 반영하는 과정(db.sqlite3 파일에 반영)</li>
+        <li>즉, 모델의 변경사항과 데이터베이스를 동기화 하는 것.</li>
+        <img src="https://user-images.githubusercontent.com/110621233/225489064-35f6e191-16f3-4b52-ab2a-1fe10f6f963a.png" alt="migrate">
+        <li><b>반드시 기억해야 할 migration 3단계</b>
+            <ol>
+                <li>models.py에서 변경사항이 발생</li>
+                <li>migration 생성 # makemigrations</li>
+                <li>DB 반영(모델과 DB의 동기화) # migrate</li>
+            </ol>
+        </li>
+    </ul>
+    <h2>ORM</h2>
+    <ul>
+        <li>Object-Relational-Mapping</li>
+        <li>객체 지향 프로그래밍 언어를 사용하여 호환되지 않는 유형의 시스템 간에(Django <-> DB)데이터를 변환하는 프로그래밍 기술.</li>
+        <li>즉, SQL을 사용하지 않고 데이터베이스를 조작할 수 있게 만들어주는 매개체이다.</li>
+        <img src="https://user-images.githubusercontent.com/110621233/225489637-2bc78b50-2017-4ec7-b34b-44ba2bd58d4a.png" alt="orm">
+        <li>장점
+            <ul>
+                <li>SQL을 잘 알지 못해도 객체지향 언어로 DB조작이 가능</li>
+                <li>객체 지향적 접근으로 인한 높은 생산성</li>
+            </ul>
+        </li>
+        <li>단점
+            <ul>
+                <li>ORM만으로 세밀한 데이터베이스 조작을 구현하기 어려운 경우가 있음.</li>
+            </ul>
+        </li>
+    </ul>
+    
+</body>
+</html>

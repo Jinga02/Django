@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>여기는 throw입니다.</h1>
+
+<form action="{% url 'articles:catch' %}" methood="GET">
+    <label for="message">보내고 싶은 메세지</label>
+    <input type="text" name="message" id="message">
+    <input type="submit" name="" id="">
+</form>
+{% endblock content %}
