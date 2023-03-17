@@ -36,6 +36,7 @@
         <li>models.py 작성
             <ul>
                 <li>모델 클래스 작성 = 데이터베이스 테이블 스키마 정의.</li>
+                <li>각각의 모델은 하나의 데이터베이스 테이블에 매핑.</li>
                 <li>각 모델은 django.models.Model 클래스의 서브 클래스이다.</li>
                 <img src="https://user-images.githubusercontent.com/110621233/225487792-69d59762-63e6-47b0-beca-7af5c310aaf6.png" alt="모델작성">
                 <li>models 모듈을 통해 어떠한 타입의 DB필드(컬럼)을 정의할 것인지를 정의.</li>
@@ -48,6 +49,7 @@
     <h2>Migrations</h2>
     <ul>
         <li>Python 모델 클래스의 수정 (및 생성 )을 DB에 적용하는 과정을 Migrations이라 한다.</li>
+        <li>model에 생긴 변화를 실제 DB에 반영하는 방법.</li>
         <li>터미널에 python manage.py makemigrations 을 입력하여 설치.</li>
         <li>vscode sqlite확장 설치</li>
     </ul>
@@ -55,6 +57,8 @@
     <ul>
         <li>makemigrations로 만든 설계도를 실제 데이터베이스에 반영하는 과정(db.sqlite3 파일에 반영)</li>
         <li>즉, 모델의 변경사항과 데이터베이스를 동기화 하는 것.</li>
+        <li>python manage.py migrate</li>
+        <li>showmigrations => migrations 파일들이 정상적으로 migrate되었는지 여부 확인</li>
         <img src="https://user-images.githubusercontent.com/110621233/225489064-35f6e191-16f3-4b52-ab2a-1fe10f6f963a.png" alt="migrate">
         <li><b>반드시 기억해야 할 migration 3단계</b>
             <ol>
@@ -80,6 +84,42 @@
             <ul>
                 <li>ORM만으로 세밀한 데이터베이스 조작을 구현하기 어려운 경우가 있음.</li>
             </ul>
+        </li>
+        <li>사용하기 위한 준비
+            <ol>
+                <li>vscode sqlite 확장프로그램 설치</li>
+                <li>pip install ipython 참고 <a href="https://technote.kr/21">ipython</a></li>
+                <li>pip install django-extensions 장고의 기본 명령들의 기능을 확장해 주고 여러 부가 기능을 추가해주는 모듈 <br>
+                    setting => INSTALLED_APPS에 추가</li>
+                <li>python manage.py shell_plus <br>
+                    django라는 환경안에서 여러가지 코드를 작성하게 해준다. <br>
+                    django에서 app, model, orm등을 사용하고 있는데 이러한 것들을 shell에서도 작성가능하게 해준다.</li>
+            </ol> 
+        </li>
+        <li>objects manager
+            <ul>
+                <li>django 모델이 데이터베이스 쿼리 작업을 가능하게 하는 인터페이스.</li>
+                <li>데이터베이스를 class로 조작할 수 있도록 여러 메서드를 제공하는 manager</li>
+            </ul>
+        </li>
+        <li>Query
+            <ul>
+                <li>데이터베이스에 요청하는 명령문</li>
+                <li>python에서 작성 => ORM에 의해 SQL로 변환 후 데이터베이스에 전달 <br>
+                    => 데이터베이스에서 응답한 데이터를 ORM에 QuerySet 자료형태로 변환하여 다시 전달</li>
+            </ul>
+            <ol>QuerySet API 익혀보기
+                <li>데이터 객체 생성 방법
+                    <ol>
+                        <li>article = Article() <br>
+                            클래스를 통한 인스턴스 생성</li>
+                        <li>article.title <br>
+                            클래스 변수명과 같은 이름의 인스턴스 변수를 생성 후 값을 할당</li>
+                        <li>article.save() <br>
+                            인스턴스로 save 메서드 호출</li>
+                    </ol>
+                </li>
+            </ol>
         </li>
     </ul>
     
