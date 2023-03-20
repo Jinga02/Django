@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>INDEX</h1>
+<a href="{% url 'articles:form'%}">작성하기</a>
+{% for article in articles %}
+    <p>글 번호 : {{article.id}} </p>
+    {% comment %} pk를 같이 넘겨줘야 찾을 수 있음 {% endcomment %}
+    <a href=" {% url 'articles:detail' article.pk %}">
+    <p>글 제목 : {{article.title}} </p></a>
+    <p>글 내용 : {{article.content}} </p>
+    <hr>
+{% endfor %}
+{% endblock content %}

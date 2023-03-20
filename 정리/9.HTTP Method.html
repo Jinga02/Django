@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2>GET & POST</h2>
+    <ul>
+        <li><h3>GET</h3>
+            <ul>
+                <li>어떠한 정보를 가져와 조회하기 위해서 사용하는 방식이다.</li>
+                <li>반드시 데이터를 가져올 때만 사용해야 한다.</li>
+                <li>DB에 변화를 주지 않는다.</li>
+                <li>같은 요청을 여러 번 하더라도 변함없이 항상 같은 응답을 받을 수 있다.</li>
+                <li>데이터의 변형의 위험없이 사용할 수 있으며 안전하다고 간주된다.</li>
+            </ul>
+        </li>
+        <li><h3>POST</h3>
+            <ul>
+                <li>데이터를 서버로 제출하여 추가 or 수정하기 위해 사용하는 방식</li>
+                <li>서버로 데이터를 전송할 때 사용한다.</li>
+                <li>서버에 변경사항을 만든다.</li>
+                <li>리소스를 생성/변경하기 위해 데이터를 HTTP body에 담아 전송한다.</li>
+                <li>요청을 반복해서 했을 때 항상 같은 결과물이 나오는 것을 보장하지 않는다.</li>
+                <li>csrf_token
+                    <ul>
+                        <li>'사이트 간 요청 위조'방어 <a href="https://devscb.tistory.com/123">devscb</a></li>
+                        <li>django는 DTL에서 csrf_token템플릿 태그를 제공한다.</li>
+                        <li>사용자의 데이터에 임의의 난수 값(token)을 부여해 매 요청마다 해당 난수 값을 포함시켜 전송시키도록한다.</li>
+                        <li>이후 서버에서 요청을 받을 때마다 전달된 token값이 유요한지 검증한다.</li>
+                        <li>'즉 해당 POST 요청이 내가 보낸 것 인지를 검증하는 것' 이다.</li>
+                        <img src="https://user-images.githubusercontent.com/110621233/226261874-856388ab-022a-4281-8d71-da357731f1c7.png" alt="POST1-1">
+                        <img src="https://user-images.githubusercontent.com/110621233/226261879-47ab8241-adcd-4350-a600-d2c1e416d50a.png" alt="POST1-2">
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><h3>GET&POST 참고 <a href="https://prinha.tistory.com/entry/HTMLWEB-HTTP-Method-GET-POST%EC%9D%98-%EC%B0%A8%EC%9D%B4">prinha</a></h3></li>
+    </ul>
+    
+</body>
+</html>

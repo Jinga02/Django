@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>EDIT</h1>
+  <form action="{% url 'articles:update' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name='pk' value="{{article.pk}}">
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" value="{{article.title}}"><br>
+    <label for="content">Content: </label>
+    <input type="text" name="content" id="content" value="{{article.content}}"><br>
+    <input type="submit">
+  </form>
+  <hr>
+  <a href="{% url 'articles:index' %}">뒤로가기</a>
+{% endblock content %}
