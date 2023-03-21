@@ -1,6 +1,6 @@
 > django를 활용한 간단한 CRUD 구현
 
-<!DOCTYPE html>
+><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,11 +18,11 @@
                 <li>python manage.py createsuperuser <br> Username, Emaill address, Password 설정 # 관리자계정 생성</li>
                 <li>server 실행 => 주소는 admin</li>
                 <li>모델 record를 보기 위해 <br> admin.py에 등록 # admin.site.register(class이름)</li>
+              from .models import class이름
                 <li>다시 server 실행 => admin에 등록한 모델 생성됨(이전에 만들었던 class gui로 생성 및 관리 가능)</li>
             </ol>
         </li>    
-        
-        <img src="https://user-images.githubusercontent.com/110621233/226249138-2d1f9137-d130-4c46-90a2-752bb73f602c.png" alt="crud초기화면">    
+        <img src="https://user-images.githubusercontent.com/110621233/226249138-2d1f9137-d130-4c46-90a2-752bb73f602c.png" alt="crud초기화면"><h4>admin 화면</h4>
     </ul>    
     <h2>CREATE</h2>
     <h3>create 로직을 구현</h3>
@@ -36,28 +36,27 @@
                 <li>render과 redirect의 차이 참고 <a href="https://ssungkang.tistory.com/entry/Django-render-%EC%99%80-redirect-%EC%9D%98-%EC%B0%A8%EC%9D%B4">ssungkang</a></li>
             </ul>
         </li>
-    </ul>
-    <div class="container">
-        <div class="row">
-            <div class="col">
             <img src="https://user-images.githubusercontent.com/110621233/226251846-680c5b6e-d075-4bd4-8aba-693bb5834d41.png" alt="create1-1">
             <img src="https://user-images.githubusercontent.com/110621233/226251853-78da32d6-38ce-4fa7-b053-e088f83503c5.png" alt="create1-2">
-            </div>
-        </div>
+        <h3>new와 create view 함수 합치기</h3>
+        <li>
+            <ol>
+                <h3><li>request.method 값을 기준으로 if문 작성</li></h3>
+                <li>불필요해진 new의 view 함수와 url path 삭제</li>
+                <li>new.html에서 create.html로 이름 변경 및 action 속성 값 수정</li>
+                <li>index 페이지에 있던 new관련 링크 create로 수정</li>
+            </ol>
+        </li>
+    </ul>
     </div>
-      <!-- <img src="https://user-images.githubusercontent.com/110621233/226251852-592db018-18d8-442b-8315-86dbcc98b4c7.png" alt="create1-3">
-      <img src="https://user-images.githubusercontent.com/110621233/226251848-cba247f4-2696-48b5-aa94-c6b2e34e6f4a.png" alt="create1-4"> -->
-    
     <h2>READ_1</h2>
     <h3>index.html파일을 만들어 생성한 DB파일들 출력해보기</h3>
     <img src="https://user-images.githubusercontent.com/110621233/226249698-945a851a-40a3-4115-b5a5-0cdfad4f0ea2.png" alt="all1">
     <img src="https://user-images.githubusercontent.com/110621233/226249817-1aacf20b-1254-4fad-8c42-a9006680eb7b.png" alt="all2">
-    <img src="https://user-images.githubusercontent.com/110621233/226250115-25d9d296-d2a0-4bb4-8c0a-5232000aab4e.png" alt="all3">
     <h2>READ_2</h2>
     <h3>detail.html파일을 만들어 생성한 DB파일들 중 원하는 파일만 출력해보기(class의 id를 입력받아 출력)</h3>
     <img src="https://user-images.githubusercontent.com/110621233/226250644-ddc19cd4-ffa1-4b08-ba94-bdfa4606726b.png" alt="detail1">
     <img src="https://user-images.githubusercontent.com/110621233/226250651-acb8346c-230b-48e1-83db-fae7c2ea6ece.png" alt="detail2">
-    <img src="https://user-images.githubusercontent.com/110621233/226250647-88d1d76b-6355-429a-ac1b-766e6f26f001.png" alt="detail3">
     <h2>DELETE</h2>
     <h3>deltet()를 사용해 원하는 DB파일 삭제</h3>
     <ul>
@@ -76,19 +75,27 @@
         <img src="https://user-images.githubusercontent.com/110621233/226271246-c13446d3-0090-42be-9f06-e9064c59f553.png" alt="update1-1">
         <img src="https://user-images.githubusercontent.com/110621233/226271241-760c06e7-85e5-4de3-a28c-be3476abdcc2.png" alt="update1-2">
         <img src="https://user-images.githubusercontent.com/110621233/226271252-60d79feb-c53d-487c-9c9d-9e70600954b5.png" alt="update1-3">
+        <h3>edit와 update view 함수 합치기</h3>
+        <li>
+            <ol>
+                <h3><li>request.method 값을 기준으로 if문 작성</li></h3>
+                <li>불필요해진 edit의 view 함수와 url path 삭제</li>
+                <li>edit.html에서 update.html로 이름 변경 및 action 속성 값 수정</li>
+                <li>detail 페이지에 있던 edit관련 링크 update로 수정</li>
+            </ol>
+        </li>
     </ul>
     <h3>공부하며 배운 명령어</h3>
   	<p>django-admin startproject crud . # 현재 위치의 폴더에 바로 생성 <br>
     auto_now_add=True # 생성될때 자동 부여<br>
     auto_now=True # 내용이 변경될때마다 자동 부여 <br>
-    from app이름.models import cass이름<br>
+    from app이름.models import class이름<br>
     Articles.objects.all() # 전부 보기<br>
     Articles.objects.get(id=2) # Articles클래스 중 id가 2인것 가져와 1개만 보기<br>
     Article.objects.create(title = '게시글 4', content= '내용 4') # save를 하지 않아도 생성  <br>  
     views.py에 articles = Articles.objects.all() 간편하게 사용</p>
     <h2>마무리</h2>
     <p>간단하게 CRUD를 구현하는 방법에 대해 공부해봤다.<br>
-      중간중간 기본적으로 만들어줘야 할 링크, html등은 생략하고 작성을 했다. <br>
-       지금까지 공부했던 부분들을 참고하여 CRUD를 구현해보자.</p>
+      공부용이라 중간중간 기본적으로 작성되어야 할 html파일, 다른 코드등 빠진 부분들이 많다. <br>반복학습을 통해 CRUD를 자유자재로 구현할 수 있게 해야겠다.</p>
 </body>
 </html>

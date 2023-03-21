@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h2>Static File</h2>    
+    <ul>
+        <li>HTML을 제외하고 웹 페이지를 렌더링 할 때 필요한 추가적인 파일</li>
+        <li>사용자의 요청에 따라 내용이 바뀌는 것이 아니라 요청한 것을 그대로 보여주는 파일</li>
+        <h3><li>django의 정적파일</h3>
+            <ol>
+                <li>Static 파일 : 이미지, Javascript, CSS처럼 개발자가 서버를 개발할 때 미리 넣어 준비해 놓은 파일로, 서비스 중에 추가되거나 수정되지 않고 고정되어 있음</li>
+                <li>Media 파일 : 사용자가 업로드 할 수 있는 파일로, 파일 자체는 고정되어 있지만 언제 어떤 파일이 제공될 지는 예측할 수 없음</li>
+            </ol>
+        </li>
+        <h3><li>Static File 관리</h3>
+            <ol>
+                <li>settings.py에서 STATIC_URL 정의하기</li>
+                <img src="https://user-images.githubusercontent.com/110621233/226525635-a071068b-9ee6-4f4e-a977-562996994108.png" alt="static1-4">
+                <li>app의 static 폴더에 정적 파일 추가하기<br>
+                    예시 : app폴더/static/파일</li>
+                <img src="https://user-images.githubusercontent.com/110621233/226525359-b156b308-9edf-411b-bfd8-cfda369e69cb.png" alt="static1-1">
+                <li>템플릿에서 static 템플릿 태그를 사용해 지정된 경로에 있는 정적 파일의 URL만들기</li>
+                <img src="https://user-images.githubusercontent.com/110621233/226525494-8ff49e77-0bcb-4bb9-b621-6e21efba6061.png" alt="static1-2">
+                <img src="https://user-images.githubusercontent.com/110621233/226525497-4800fe19-5e50-42de-a387-8a8530e106ac.png" alt="static1-2">
+                <li></li>
+            </ol>
+        </li>
+    </ul>
+    <h2>Media Files</h2>
+    <ul>
+        <h3><li>ImageField()</h3>
+            <ul>
+                <li>이미지를 업로드할 때 사용하는 모델필드</li>
+                <li>FileField를 상속받는 서브 클래스이기 때문에 FileField의 모든 속성 및 메서드를 사용 가능</li>
+            </ul>
+        </li>
+        <h3><li>FileField()</h3>
+            <ul>
+                <li>파일 업로드에 사용하는 모델 필드</li>
+                <li>
+                    <ol>FileField/ ImageField를 사용하기 위한 단계
+                        <li>settings.py에 MEDIA_ROOT, MEDIA_URL 설정 <br>
+                            MEDIA_ROOT : 사용자가 업로드 한 파일(미디어 파일)들을 보관할 디렉토리의 절대 경로 <br>
+                            MEDIA_URL : MIDIA_ROOT에서 제공되는 미디어 파일을 처리하는 URL</li>
+                        <img src="https://user-images.githubusercontent.com/110621233/226540671-428db6aa-2b26-4520-a874-0f6a53c411f1.png" alt="media1">
+                        <li>개발 단계에서 사용자가 업로드한 미디어 파일 제공하기</li>
+                        <img src="https://user-images.githubusercontent.com/110621233/226531868-a2d46a73-de58-46be-b0bb-f7a9b51cf2a6.png" alt="media2">
+                    </ol>
+                </li>
+            </ul>
+        </li>
+        <h3><li>Media File 사용하기</h3>
+            <ul>
+                <h3><li>CREATE</h3>
+                        <ul>
+                            <li>models.py에 작성한 class에 ImageField 작성 <br>
+                                class내 기존 컬럼사에이 작성해도 테이블에 추가 될 때는 가장 우측(뒤)에 추가됨. <br>
+                                Blank 와 NULL <a href="https://wayhome25.github.io/django/2017/09/23/django-blank-null/">wayhome25</a>
+                            </li>
+                            <img src="https://user-images.githubusercontent.com/110621233/226533273-89ebc4c5-ab7e-4d80-897e-be88c4e8cd3b.png" alt="media3">
+                            <li>ImageField를 사용하려면 Pillow 라이브러리가 필요하다. <br>
+                                Pillow 설치 없이는 makemigrations 실행 불가<br>
+                                참고 pillow란 <a href="https://89douner.tistory.com/309">89douner</a>
+                                주의) MEDIA_ROOT, MEDIA_URL 오타시 makemigrations 에러 발생</li>
+                            <img src="https://user-images.githubusercontent.com/110621233/226534346-518d1104-5e48-4f46-b832-e4ca2ecc547d.png" alt="media4">
+                            <li>ArticleForm에서 image 필드 출력
+                                <ul>
+                                    <li>출력 할 create.html의 form 태그에 enctype 속성 추가</li>
+                                    <img src="https://user-images.githubusercontent.com/110621233/226540016-f6c50577-a220-4eae-b33d-f0270a3d715b.png" alt="media5">
+                                    <li>views의 create함수에 request.FILES 추가 # 파일 및 이미지는 POST속성 값이 아닌 FILES 속성 값에 담겨져 넘어간다. <br>
+                                    <h4>반드시 request.FILES를 두번째 위치시켜줘야한다.</h4></li>
+                                    <img src="https://user-images.githubusercontent.com/110621233/226540024-3ab5c80c-65d3-4bba-8f78-32a7902a0234.png" alt="media6">
+                                </ul>
+                            </li>
+                            <li>업로드 이미지 출력하기</li>
+                            <img src="https://user-images.githubusercontent.com/110621233/226540916-73142a93-998f-4f83-8eb8-71d9116513cc.png" alt="media7">
+                        </ul>
+                </li>
+                <h3><li>UPDATE</h3>
+                        <ul>
+                            <li>update.html 의 form태그에 enctype 추가</li>
+                            <img src="https://user-images.githubusercontent.com/110621233/226541437-651104f9-a008-4635-8551-0789673b74ef.png" alt="media8">
+                            <li>views의 update 함수에 request.FILES 추가</li>
+                            <img src="https://user-images.githubusercontent.com/110621233/226541439-879bad7d-e425-46f8-b7a5-728be7071c02.png" alt="media9">
+                        </ul>
+                    </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

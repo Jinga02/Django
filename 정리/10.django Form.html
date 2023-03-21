@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>django form이란</h2>
+    <ul>
+        <li>django의 유효성 검사 도구 중 하나로 외부의 악의적 공격 및 데이터 손상에 대한 중요한 방어 수단 역할을 한다.</li>
+        <li>유효성 검사를 단순화하고 자동화 할 수 있는 기능을 제공한다.</li>
+        <li>이를 통해 개발자가 직접 작성하는 코드보다 더 안전하고 빠르게 수행 하는 코드를 작성할 수 있게 해준다.</li>       
+        <li>django의 form에 관련된 작업
+            <ol>
+                <li>렌더릴을 위한 데이터 준비 및 재구성</li>
+                <li>데이터에 대한 HTML forms생성</li>
+                <li>클라이언트로부터 받은 데이터 수신 및 처리</li>
+            </ol>
+        </li>
+    </ul>
+    <h2>Form class 사용하기</h2>
+    <ul>
+        <li>Model과 같이 상속을 통해 선언된다.(forms 라이브러리의 Form 클래스를 상속받는다.)</li>
+        <li>
+            <ol>
+                <li>사용 할 app폴더 안에 forms.py 작성</li>
+                <img src="https://user-images.githubusercontent.com/110621233/226499604-d39e099f-0a7b-41ba-9018-73ae59d24a2d.png" alt="form1-1">
+                <li>app 폴더 -> view -> form을 사용 할 create, update 수정 + 만든 form 상속</li>
+                <img src="https://user-images.githubusercontent.com/110621233/226499960-5e08bb4f-28bd-44bd-b1df-790c4283f0a9.png" alt="form1-2">
+                <img src="https://user-images.githubusercontent.com/110621233/226499967-81c76390-5a11-480f-93d7-5ed080f6b53e.png" alt="form1-3">
+                <img src="https://user-images.githubusercontent.com/110621233/226499966-b4b7b7a0-d702-42e9-9c32-4b56041a199c.png" alt="form1-4">
+                <p>as_p() # 각 필드가 p태그로 감싸져서 렌더링</p>
+            </ol>
+        </li>
+    </ul>
+    <h2>ModelForm</h2>
+    <ul>
+        <li>Model을 통해 Form Class를 만들 수 있는 helper class.</li>
+        <li>ModelForm은 Form과 똑같은 방식으로 View함수에서 사용.</li>
+        <li>즉 내가 만든 model을 바탕으로 form을 만들어 준다.</li>
+        <li><h4>ModelForm 사용하기</h4>
+            <ol>
+                <li>ModelForm 클래스 상속.</li>
+                <li>ModelForm 클래스 안에 Meta 클래스 선언.
+                    <ul>
+                        <li>Meta 클래스는 ModelForm의 정보를 작성하는 곳이다.</li>
+                        <li>ModelForm을 사용할 경우 참조 할 모델이 있어야 하는데, model 속성이 이를 구성한다.</li>
+                    </ul>
+                </li>
+                <img src="https://user-images.githubusercontent.com/110621233/226503666-4cda4f9b-aad2-4488-90fa-5216f4d15a42.png" alt="form1-5">
+                <li>ModelForm사용할 함수 create수정</li>
+                <img src="https://user-images.githubusercontent.com/110621233/226507275-d35fc391-77ed-4942-b7a0-1f2d1f05acb8.png" alt="form1-6">
+                <li>만약 필드마다 유효성 검사를 하고 싶다면</li>
+                <img src="https://user-images.githubusercontent.com/110621233/226507875-d4e14491-b824-4841-8de9-c95f670f7f85.png" alt="form1-7">
+                <li>create 함수 깔끔하게 정리하기</li>
+                <img src="https://user-images.githubusercontent.com/110621233/226508246-04aa3bff-6974-4ade-84c0-cb796ca0e372.png" alt="">
+                <li>ModelForm사용할 함수 update수정</li>
+                <li></li>
+                <li></li>
+            </ol>
+        </li>
+    </ul>
+    <h2>Form과 ModelForm</h2>
+    <ul>
+        <li>From
+            <ul>
+                <li>사용자의 입력을 필요로 하며 직접 입력 데이터가 DB저장에 사용되지 않거나 일부 데이터만 사용 될때</li>
+                <li>예시 : 로그인, 사용자의 데이터를 받아 인증과정에서만 사용 후 별도로 DB에 저장하지 않는다.</li>
+            </ul>
+        </li>
+        <li>ModelForm
+            <ul>
+                <li>사용자의 입력을 필요로 하며 입력을 받은 것을 그대로 Db 필드에 맞춰 저장 할 때</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>WIDGET</h2>
+    <ul>
+        <li>HTML input element의 렌더링/표현을 담당한다.</li>
+        <li>단순히 input 요소의 보여지는 부분을 변경시킨다.</li>
+        <li>반드시 form fields에 할당 된다.</li>
+        <li>참고 <a href="https://docs.djangoproject.com/ko/3.2/ref/forms/widgets/#bulit-in-widgets">django-widgets</a></li>
+        <img src="https://user-images.githubusercontent.com/110621233/226517761-83de516b-f47f-46ff-a117-f3c621fee99c.png" alt="widget">
+    </ul>
+    
+</body>
+</html>
