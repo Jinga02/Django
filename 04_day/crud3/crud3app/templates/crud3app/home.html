@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>HOME</h1>
+<a href="{% url 'crud3:form' %}">create</a><br>
+<hr>
+{% for crud3s in crud3 %}
+    <p>BOOK_ID : {{ crud3s.pk }}</p>
+    <p>
+        <a href="{% url 'crud3:detail' crud3s.pk %}">
+            TITLE : {{crud3s.title}}
+          </a>       
+    </p>
+    <p>CONTENT : {{ crud3s.content }}</p>
+    <hr>
+{% endfor %}
+{% endblock content %}

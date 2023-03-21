@@ -1,8 +1,11 @@
 from django.urls import path
 from . import views
 
+app_name = 'crud3'
 urlpatterns = [
-    path('', views.home),
-    # path('create/', 'crue3app/urls'),
-    # path('create/', 'crue3app/urls'),
+    path('', views.home, name = 'home'),
+    path('form/', views.form, name='form'),
+    path('create/', views.create, name='create'),
+    path('<int:pk>/', views.detail, name='detail'),
+    path('<int:pk>/delete', views.delete, name='delete'),
 ]

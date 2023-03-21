@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>DETAIL</h1>
+<p>TITLE : {{ crud3.title }}</p>
+<p>CONTENT : {{ crud3.content }}</p>
+<p>CREATE_TIME : {{ crud3.created_at }}</p>
+<p>UPDATE_TIME : {{ crud3.updated_at }}</p>
+<hr>
+<form action="{% url 'crud3:delete' crud3.pk %}" method='POST'>
+    {% csrf_token %}
+    <input type="submit" name="" id="" value='DELETE'>
+</form>
+<a href="{% url 'crud3:home' %}">HOME</a>
+{% endblock content %}
