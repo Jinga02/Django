@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>사전 설정</h2>
+    <ol>
+        <li>accounts app 생성 및 등록</li>
+        <li>url 분리 및 매핑</li>
+    </ol>
+    <h2>Custom user model</h2>
+    <ul>
+        <li>django는 기본적으로 User Model을 제공한다.</li>
+        <li>하지만 기본적으로 제공되는 필드들만으로는 원하는 서비스를 만들기 어렵다.</li>
+        <li>그렇기 때문에 Custom User model을 사용해야 한다.</li>
+        <li>AUTH_USER_MODEL 참고 <a href="https://han-py.tistory.com/353">han-py</a></li>
+        <li><b>프로젝트 중간에 AUTH_USER_MODEL 변경 매우 어려움</b></li>
+    </ul>  
+    <h2>코드 작성하기</h2>
+    <ol>
+        <li>accounts => models에 모델 정의</li>
+        <li>settings에 AUTH_USER_MODEL = 'accounts.User' 정의</li>
+        <li>admin.py에 User모델 등록</li>
+    </ol>
+    <h2>HTTP</h2>
+    <ul>
+        <h3><li>HTTP 정의</h3>
+            <ul>
+                <li>HTML 문서와 같은 리소스들을 가져올 수 있도록 해주는 프로토콜(규칙, 규약)</li>
+                <li>웹(WWW)에서 이루어지는 모든 데이터 교환의 기초</li>
+                <li>클라이언트 - 서버 프로토콜이라고도 부름</li>
+            </ul>
+        </li>
+        <h3><li>HTTP 특징</h3>
+            <ul>
+                <li>비연결지향 : 서버는 요청에 대한 응답을 보낸 후 연결을 끊는다.</li>
+                <li>무상태 : 연결을 끊는 순간 통신이 끝나며 상태 정보가 유지되지 않는다.</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>쿠키(COOKIE)</h2>
+    <ul>
+        <h3><li>정의</h3>
+            <ul>
+                <li>서버가 사용자의 웹 브라우저에 전송하는 작은 데이터 조각.</li>
+                <li>웹 페이지 방문 시 방문 기록 등 브라우저에서의 정보들이 저장된 텍스트 파일.</li>
+            </ul>
+        </li>
+        <h3><li>사용 목적</h3>
+            <ul>
+                <li>세션 관리 : 로그인, 팝업체크, 장바구니 등의 정보 관리.</li>
+                <li>개인화 : 사용자가 설정한 테마 등의 설정.</li>
+                <li>트래킹 : 사용자 행동을 기록하고 분석.</li>
+            </ul>
+        </li>
+        <h3><li>세션(session)</h3>
+            <ul>
+                <li>일정 시간동안 같은 사용자(브라우저)로부터 들어오는 일련의 요구를 하나의 상태로 보고, 그 상태를 유지시키는 것.</li>
+                <li>클라이언트가 서버에 접속하면 서버가 특정 session id를 발급하고, 클라이언트는 session id를 쿠키에 저장한다.</li>
+            </ul>
+        </li>
+        <h3><li>Lifitime(수명)</h3>
+            <ul>
+                <li>Session cookie : 현재 세션이 종료되면 삭제, 브라우저 종료와 함께 세션이 삭제된다.</li>
+                <li>Persistent cookies : Expires 속성에 지정된 날짜 혹은 Max-Age속성에 지정된 기간이 지나면 삭제된다.</li>
+            </ul>
+        </li>
+        <img src="https://user-images.githubusercontent.com/110621233/226804520-9ac5875f-719b-49d5-af07-6020f9a13824.png" alt="쿠키">
+    </ul>
+    <h2>Login</h2>
+    <h3>Sessiong을 Create하는 과정</h3>
+    <ol>
+       <li>로그인 urls 작성</li> 
+       <img src="https://user-images.githubusercontent.com/110621233/226805675-d133186c-d939-42fa-8d81-dc8aaef768bb.png" alt="로그인1">
+       <li>로그인 함수 작성</li> 
+       <img src="https://user-images.githubusercontent.com/110621233/226805731-96606e8d-4f0f-4dc6-800d-4ee54b0311fe.png" alt="로그인2">
+       <li>로그인 페이지 작성</li> 
+       <img src="https://user-images.githubusercontent.com/110621233/226805790-c248fc5f-adc5-4d9a-8550-47738b826d26.png" alt="로그인3">
+       <li>로그인 링크 작성</li>
+       <img src="https://user-images.githubusercontent.com/110621233/226806720-9e33bcbc-7d7f-4679-bab7-a7c744ce4807.png" alt="로그인링크">
+
+    </ol>
+    <h2>Logout</h2>
+    <h3>Session을 Delete하는 과정</h3>
+    <ol>
+        <li>로그아웃 urls 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/226806561-c3c145eb-9092-4da2-852f-17edc380ec84.png" alt="로그아웃1">
+        <li>로그아웃 함수 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/226806536-a4dd685b-1030-4d79-becb-2dc6474241df.png" alt="로그아웃2">
+        <li>로그아웃 링크 작성</li>
+        <img src="https://user-images.githubusercontent.com/110621233/226806722-44c14c3c-b3bb-4cc9-9849-195425adecbf.png" alt="로그아웃링크">
+    </ol>
+</body>
+</html>

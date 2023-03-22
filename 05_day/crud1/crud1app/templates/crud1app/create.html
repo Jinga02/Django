@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>CREATE</h1>
+
+<form action="{% url 'crud1:create' %}" method="POST">
+    {% csrf_token %}
+    <label for="title">TITLE : </label>
+    <input type="text" name="title" id="title">
+
+    <label for="content">CONTENT : </label>
+    <input type="text" name="content" id="content">
+
+    <input type="submit" value='SUBMIT'>
+</form>
+
+{% endblock content %}

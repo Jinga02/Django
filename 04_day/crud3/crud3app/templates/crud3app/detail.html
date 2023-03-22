@@ -12,5 +12,6 @@
     {% csrf_token %}
     <input type="submit" name="" id="" value='DELETE'>
 </form>
+<a href="{% url 'crud3:edit' crud3.pk %}">EDIT</a>
 <a href="{% url 'crud3:home' %}">HOME</a>
 {% endblock content %}

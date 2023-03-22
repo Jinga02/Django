@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>HOME</h1><br>
+<a href="{% url 'crud1:form' %}">CREATE</a>
+<hr>
+{% for cruds in crud %}
+    <a href="{% url 'crud1:detail' cruds.pk %}">
+        <p>TITLE : {{ cruds.title }}</p>
+    </a>
+    <p>CONTENT : {{ cruds.content }}</p>
+    <hr>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>EDIT</h1>
+<form action="{% url 'crud3:update' %}" method='POST'>
+    {% csrf_token %}
+    <input type="hidden" name='pk' value="{{crud3.pk}}">
+    <label for="title">TITLE : </label>
+    <input type="text" name="title" id="title" value="{{crud3.title}}">
+    <label for="content"></label>
+    <input type="text" name="content" id="content" value="{{crud3.content}}">
+    <input type="submit" >
+</form>
+
+<a href="{% url 'crud3:home' %}">HOME</a>
+{% endblock content %}

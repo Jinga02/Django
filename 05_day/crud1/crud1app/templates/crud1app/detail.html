@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>DETAIL</h1><br>
+<hr>
+<p>TITLE : {{ crud.title }}</p>
+<p>CONTENT : {{ crud.content }}</p>
+<hr>
+<form action="{% url 'crud1:delete' crud.pk%}" method='POST'>
+    {% csrf_token %}
+    <input type="submit" value="DELETE">
+</form>
+<a href="{% url 'crud1:home' %}">HOME</a>
+<a href="{% url 'crud1:edit' crud.pk%}">EDIT</a>
+ 
+{% endblock content %}

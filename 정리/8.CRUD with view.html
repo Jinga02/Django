@@ -24,7 +24,8 @@
         </li>    
         <img src="https://user-images.githubusercontent.com/110621233/226249138-2d1f9137-d130-4c46-90a2-752bb73f602c.png" alt="crud초기화면"><h4>admin 화면</h4>
     </ul>    
-    <h2>CREATE</h2>
+  
+>    <h2>CREATE</h2>
     <h3>create 로직을 구현</h3>
     <ul>
         <li>사용자의 입력을 받을 페이지와 함수 form</li>
@@ -37,27 +38,29 @@
             </ul>
         </li>
             <img src="https://user-images.githubusercontent.com/110621233/226251846-680c5b6e-d075-4bd4-8aba-693bb5834d41.png" alt="create1-1">
-            <img src="https://user-images.githubusercontent.com/110621233/226251853-78da32d6-38ce-4fa7-b053-e088f83503c5.png" alt="create1-2">
-        <h3>new와 create view 함수 합치기</h3>
-        <li>
+            <img src="https://user-images.githubusercontent.com/110621233/226251853-78da32d6-38ce-4fa7-b053-e088f83503c5.png" alt="create1-2">    
+        <li><h3>new와 create view 함수 합치기</h3>
             <ol>
-                <h3><li>request.method 값을 기준으로 if문 작성</li></h3>
+                <h4><li>request.method 값을 기준으로 if문 작성</li></h4>
                 <li>불필요해진 new의 view 함수와 url path 삭제</li>
                 <li>new.html에서 create.html로 이름 변경 및 action 속성 값 수정</li>
                 <li>index 페이지에 있던 new관련 링크 create로 수정</li>
+              	<img src="https://user-images.githubusercontent.com/110621233/226497569-eef9d4b5-232f-4085-9b38-0a805104fc09.png" alt="create2-1">    
             </ol>
         </li>
     </ul>
     </div>
-    <h2>READ_1</h2>
+    
+  ><h2>READ_1</h2>
     <h3>index.html파일을 만들어 생성한 DB파일들 출력해보기</h3>
-    <img src="https://user-images.githubusercontent.com/110621233/226249698-945a851a-40a3-4115-b5a5-0cdfad4f0ea2.png" alt="all1">
-    <img src="https://user-images.githubusercontent.com/110621233/226249817-1aacf20b-1254-4fad-8c42-a9006680eb7b.png" alt="all2">
+    <img src="https://user-images.githubusercontent.com/110621233/226769385-424ed3d1-37a0-4c85-9fa5-81399e111774.png" alt="all1">
+    <img src="https://user-images.githubusercontent.com/110621233/226769577-6781031c-c808-4292-978e-c1b9910c148c.png" alt="all2">
     <h2>READ_2</h2>
     <h3>detail.html파일을 만들어 생성한 DB파일들 중 원하는 파일만 출력해보기(class의 id를 입력받아 출력)</h3>
     <img src="https://user-images.githubusercontent.com/110621233/226250644-ddc19cd4-ffa1-4b08-ba94-bdfa4606726b.png" alt="detail1">
     <img src="https://user-images.githubusercontent.com/110621233/226250651-acb8346c-230b-48e1-83db-fae7c2ea6ece.png" alt="detail2">
-    <h2>DELETE</h2>
+    
+ > <h2>DELETE</h2>
     <h3>deltet()를 사용해 원하는 DB파일 삭제</h3>
     <ul>
         <li>삭제하고자 하는 DB파일을 조회 후 삭제해야 한다.</li>
@@ -74,18 +77,19 @@
         <li>사용자가 입력한 데이터를 전송 받아 DB에 저장하는 함수 update</li>
         <img src="https://user-images.githubusercontent.com/110621233/226271246-c13446d3-0090-42be-9f06-e9064c59f553.png" alt="update1-1">
         <img src="https://user-images.githubusercontent.com/110621233/226271241-760c06e7-85e5-4de3-a28c-be3476abdcc2.png" alt="update1-2">
-        <img src="https://user-images.githubusercontent.com/110621233/226271252-60d79feb-c53d-487c-9c9d-9e70600954b5.png" alt="update1-3">
-        <h3>edit와 update view 함수 합치기</h3>
-        <li>
+        <img src="https://user-images.githubusercontent.com/110621233/226271252-60d79feb-c53d-487c-9c9d-9e70600954b5.png" alt="update1-3">  
+        <li><h3>edit와 update view 함수 합치기</h3>
             <ol>
-                <h3><li>request.method 값을 기준으로 if문 작성</li></h3>
+                <h4><li>request.method 값을 기준으로 if문 작성</li></h4>
                 <li>불필요해진 edit의 view 함수와 url path 삭제</li>
                 <li>edit.html에서 update.html로 이름 변경 및 action 속성 값 수정</li>
                 <li>detail 페이지에 있던 edit관련 링크 update로 수정</li>
+              	<img src="https://user-images.githubusercontent.com/110621233/226497566-784edf3c-4763-4714-a365-922638ff7bbe.png" alt="update1-3">
             </ol>
         </li>
     </ul>
-    <h3>공부하며 배운 명령어</h3>
+  
+   > <h3>공부하며 배운 명령어</h3>
   	<p>django-admin startproject crud . # 현재 위치의 폴더에 바로 생성 <br>
     auto_now_add=True # 생성될때 자동 부여<br>
     auto_now=True # 내용이 변경될때마다 자동 부여 <br>
