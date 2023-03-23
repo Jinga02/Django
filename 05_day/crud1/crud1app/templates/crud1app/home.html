@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>HOME</h1><br>
-<a href="{% url 'crud1:form' %}">CREATE</a>
+<a href="{% url 'crud1:create' %}">CREATE</a>
 <hr>
 {% for cruds in crud %}
     <a href="{% url 'crud1:detail' cruds.pk %}">
@@ -14,3 +14,5 @@
 {% endfor %}
 
 {% endblock content %}
+
+

@@ -5,12 +5,7 @@
 
 <form action="{% url 'crud1:create' %}" method="POST">
     {% csrf_token %}
-    <label for="title">TITLE : </label>
-    <input type="text" name="title" id="title">
-
-    <label for="content">CONTENT : </label>
-    <input type="text" name="content" id="content">
-
+    {{ form.as_p }}
     <input type="submit" value='SUBMIT'>
 </form>
 

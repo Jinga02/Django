@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>EDIT</h1><br>
+<hr>
+<form action="{% url 'crud1:update' crud.pk%}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value='SUBMIT'>
+</form>
+<hr>
+<a style='height: ;' href="{% url 'crud1:detail' crud.pk %}">DETAIL</a>
+   
+{% endblock content %}
