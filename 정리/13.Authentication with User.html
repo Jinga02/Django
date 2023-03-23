@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h2>UserCreationForm(회원가입)</h2>    
+    <h4>주어진 username과 password로 권한이 없는 새 user를 생성하는 ModelForm</h4>
+    <ul>
+        <h4><li>3개의 필드(username(from the user model), password1, Password2)를 가진다.</li></h4>
+        <h4><li>회원 가입 페이지 작성하기</h4>
+            <ol>
+                <li>accounts의 urls.py에 path 추가.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227069508-fba8a09c-7240-43a2-adf3-6799d339d480.png" alt="회원가입 urls">
+                <li>회원가입 html 만들기.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227069503-1a59b3f6-efeb-4400-a5e1-e46aeffcaca4.png" alt="회원가입 html">
+                <li>회원가입 함수 만들기.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227069506-61fa57f0-09ef-46ce-bf2d-c9326268456d.png" alt="회원가입 import">
+                <img src="https://user-images.githubusercontent.com/110621233/227072102-5b39de93-8485-411d-9795-7b77217b084c.png" alt="회원가입 함수">
+                <li>위와 같이작성하면 에러 발생하기때문에 forms 수정</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227075243-2ade08d9-4b57-4f4b-86f4-5472b5c12644.png" alt="custom">                
+                <img src="https://user-images.githubusercontent.com/110621233/227081369-6cd3c25e-1d2d-4c73-ac8b-045053cc35c8.png" alt="custom">
+                <li>회원가입 후 바로 로그인 처리</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227075763-13345193-08aa-4e86-adf9-9fd6f826a11c.png" alt="바로 로그인">
+            </ol>
+        </li>
+    </ul>
+    <h2>회원탈퇴</h2>
+    <ul>
+        <h4><li>회원탈퇴 구현하기</h4>
+            <ol>
+                <li>accounts의 urls.py에 path 추가.</li>
+                <li>회원탈퇴 함수 만들기.</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227076754-7da7d562-791e-44e8-8d0c-d49236d5f497.png" alt="회원탈퇴 함수">
+                <li>회원탈퇴 버튼 만들기</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227077168-15677b11-f2c1-41cf-8368-23b703260b86.png" alt="회원탈퇴 버튼">
+            </ol>
+        </li>
+    </ul>
+    <h2>회원정보 수정</h2>
+    <ul>
+        <li>UserChangeForm built-in form을 사용</li>
+        <li>사용자의 정보 및 권한을 변경하기 위해 admin 인터페이스에서 사용되는 ModelForm</li>
+        <h3><li>회원정보 수정 구현하기</h3>
+            <ol>
+                <li>urls.py에 path추가.</li>
+                <li>회원정보 함수 만들기</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227081054-49c32240-d427-4d75-abc7-73eab5092066.png" alt="회원정보 수정 함수">
+                <li>회원정보 form 수정</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227081365-beaaf74f-be1d-4eca-a759-c6610b5f86b4.png" alt="회원정보 form 수정">
+            </ol>
+        </li>
+    </ul>
+    <h2>PasswordChangeForm(비밀번호 변경)</h2>
+    <ul>
+        <h3><li>비밀번호 변경 구현하기</h3>
+            <ol>
+                <li>urls.py path추가</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227084162-ac0761a6-731e-48de-a7f7-a1a158dfc093.png" alt="">
+                <li>비밀번호 변경 함수 만들기</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227084157-e63bbbc5-0e46-4932-b28d-40f3193a5a33.png" alt="비밀번호 변경 함수">
+                <li>비밀번호 변경 import 수정 </li>
+                <img src="https://user-images.githubusercontent.com/110621233/227084160-6d6e20c6-51b2-43b8-80bc-96fada088077.png" alt="비밀번호 변경 import 수정">
+                <li>비밀번호 변경 html 만들기</li>
+                <img src="https://user-images.githubusercontent.com/110621233/227084159-e3b6b723-8765-4b90-bcd1-8e9e823e4aef.png" alt="비밀번호 변경 html">
+            </ol>
+        </li>
+    </ul>
+    <h2>is_authenticated</h2>
+    <ul>
+        <li>사용자가 인증 되었는지 여부를 확인 할 수 있는 방법</li>
+        <li>일반적으로 request.user에서 이 속성을 사용한다.(request.user.is_authenticated)</li>
+        <li><b>권한과는 관련이 없으며, 사용자가 활성화 상태이거나 유효한 세션을 가지고 있는지도 확인하지 않는다.</b></li>
+    </ul>
+</body>
+</html>
